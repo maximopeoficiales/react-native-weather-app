@@ -18,8 +18,8 @@ const Form = (props: MyProps) => {
   const {handlerSubmit} = props;
   //state
   const [animacionBoton] = useState(new Animated.Value(1));
-  const [country, setCountry] = useState('');
-  const [city, setCity] = useState('');
+  const [country, setCountry] = useState('PE');
+  const [city, setCity] = useState('Lima');
 
   const animateIn = () => {
     Animated.spring(animacionBoton, {
