@@ -90,7 +90,7 @@ const Form = (props: MyProps) => {
           <Picker.Item label="- Selecciona un Pais -" value="" />
           {countrys.length !== 0 && 
             countrys.map(c => {
-              return <Picker.Item key={c.code} label={c.name} value={c.name} />;
+              return <Picker.Item key={c.name} label={c.name} value={c.name} />;
             })}
         </Picker>
       </View>
