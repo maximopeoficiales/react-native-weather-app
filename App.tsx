@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   Alert,
   Keyboard,
@@ -8,13 +8,18 @@ import {
   TouchableWithoutFeedback,
   View,
 } from 'react-native';
+import {getAllCountryCitys, getStateByCountry} from './src/api/CountryCityApi';
+import {Country} from './src/api/responses/Country';
 import {getWeatherByCityCountry} from './src/api/WeatherApi';
 import Form from './src/components/Form/Form';
 import Weather from './src/components/Weather/Weather';
 const App = () => {
+  const [countrys, setCountrys] = useState<Country[]>([]);
   const [wheatherData, setWheatherData] = useState(null);
   const [bgColor, setBgColor] = useState('rgb(71,149,212)');
   const bgColorApp = {backgroundColor: bgColor};
+
+  
 
   const hiddenKeyboard = () => {
     Keyboard.dismiss();
@@ -22,6 +27,7 @@ const App = () => {
 
   const handlerSubmit = async (city: string, country: string) => {
     console.log(city, country);
+
     let data = await getWeatherByCityCountry(city, country);
     const kelvin = 273.15;
 
